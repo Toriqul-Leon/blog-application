@@ -1,9 +1,16 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import BlogView from "./pages/BlogView/BlogView";
+import BlogList from "./pages/Home/BlogList/BlogList";
 
 function App() {
   return (
     <div>
-      <h1>Home</h1>
+      <Routes>
+        <Route path="/" element={<BlogList />} />
+        <Route path="/home" element={<BlogList />} />
+        <Route path="/blogView" element={<BlogView />} />
+      </Routes>
     </div>
   );
 }
