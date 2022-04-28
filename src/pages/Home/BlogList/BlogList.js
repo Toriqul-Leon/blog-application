@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import AddNewPost from "../AddNewPost/AddNewPost";
 import "./BlogList.css";
 
@@ -13,11 +14,16 @@ const BlogList = () => {
 
   return (
     <div className="blog-container">
-      <h1>Blog List</h1>
+      <h1 className="fw-bold">Blog List</h1>
       {blogs.map((blog) => {
         return (
-          <div key={blog._id} className="blogs">
-            <h5 className="blog-list">{blog.title}</h5>
+          <div key={blog._id} className="blogs ">
+            <Link
+              to={`/blog/${blog._id}`}
+              className="blog-list text-decoration-none"
+            >
+              {blog.title}
+            </Link>
 
             {/* <p>{blog.content}</p>
             <small>{blog.date}</small> */}
