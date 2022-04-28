@@ -11,11 +11,15 @@
   text-align: center;
   margin: 25px 0;
 }
+.blog-container {
+  margin-bottom: 50px;
+}
+
 .blog-list {
   line-height: 5px;
   letter-spacing: 1px;
-  color: rebeccapurple;
-  width: 75%;
+  color: #0984e3;
+  width: 50%;
   display: flex;
   align-items: center;
   margin: 2px auto;
