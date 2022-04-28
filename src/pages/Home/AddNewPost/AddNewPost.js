@@ -14,7 +14,7 @@ const AddNewPost = () => {
       const blog = { title, content, date };
 
       // !Send Data to the server
-      fetch("http://localhost:5000/blogs", {
+      fetch("http://localhost:5000/blog", {
         method: "POST", // or 'PUT'
         headers: {
           "Content-Type": "application/json",
