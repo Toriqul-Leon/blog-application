@@ -6,6 +6,7 @@ import BlogList from "./pages/Home/BlogList/BlogList";
 function App() {
   return (
     <div>
+      
       <Routes>
         <Route path="/" element={<BlogList />} />
         <Route path="/home" element={<BlogList />} />

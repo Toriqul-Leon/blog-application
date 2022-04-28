@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.blogs {
+  display: flex;
+  justify-content: center;
+}
+.blog-container h1 {
+  text-align: center;
+  margin: 25px 0;
+}
+.blog-list {
+  line-height: 5px;
+  letter-spacing: 1px;
+  color: rebeccapurple;
+  width: 75%;
+  display: flex;
+  align-items: center;
+  margin: 2px auto;
+  padding: 20px;
+  font-size: 18px;
+  height: 25px;
+  background-color: #dfe6e9;
+  border: 1px solid rebeccapurple;
+  border-radius: 5px;
+}
+
+.blog-list:hover {
+  background-color: aliceblue;
+  cursor: pointer;
+}
