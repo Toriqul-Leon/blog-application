@@ -24,7 +24,7 @@ const BlogView = () => {
         <p>{blog.content}</p>
       </div>
 
-      <Comments></Comments>
+      <Comments currentUserId="1"></Comments>
     </>
   );
 };

@@ -11,7 +11,6 @@ function App() {
       <Routes>
         <Route path="/" element={<BlogList />} />
         <Route path="/home" element={<BlogList />} />
-        <Route path="/addPost" element={<AddNewPost />} />
         <Route path="/blog/:id" element={<BlogView />} />
       </Routes>
     </div>

@@ -4,8 +4,10 @@ import Comment from "./Comment";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./commentStyle.css";
-const Comments = () => {
+const Comments = ({ currentUserId }) => {
   const [backendComments, setBackendComments] = useState([]);
+
+  const [activeComment, setActiveComment] = useState(null);
 
   const rootComments = backendComments.filter(
     (backendComments) => backendComments.parentId === null
@@ -16,7 +18,7 @@ const Comments = () => {
       .filter((backendComment) => backendComment.parentId === commentId)
       .sort(
         (a, b) =>
-          new Date(a.createdAt.getTime() - new Date(b.createdAt).getTime())
+          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
       );
   };
 
@@ -25,24 +27,25 @@ const Comments = () => {
       .then((res) => res.json())
       .then((data) => setBackendComments(data));
   }, []);
+
   const [textArea, setTextArea] = useState();
-  const handleComment = (e) => {
+  const handleComment = (e, parentId = null) => {
     e.preventDefault();
     const text = e.target.text.value;
     const author = e.target.author.value;
 
     const comment = {
       id: Math.random().toString(36).substr(2, 9),
-      parentId: null,
+      parentId,
       username: author,
       body: text,
-      userId: "1",
+      userId: Math.random().toString(36).substr(2, 9),
       createdAt: new Date().toISOString(),
     };
 
     // !Send Data to the server
     fetch("http://localhost:5000/comment", {
-      method: "POST", // or 'PUT'
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
@@ -57,6 +60,7 @@ const Comments = () => {
     e.target.text.value = "";
     e.target.author.value = "";
     setBackendComments([comment, ...backendComments]);
+    setActiveComment(null);
   };
 
   return (
@@ -69,7 +73,6 @@ const Comments = () => {
               {" "}
               <input
                 required
-                onChange={(e) => setTextArea(e.target.value)}
                 className="form-control my-2"
                 type="text"
                 name="author"
@@ -100,6 +103,10 @@ const Comments = () => {
           {rootComments.map((rootComment) => {
             return (
               <Comment
+                handleComment={handleComment}
+                currentUserId={currentUserId}
+                activeComment={activeComment}
+                setActiveComment={setActiveComment}
                 key={rootComment.id}
                 comment={rootComment}
                 replies={getReplies(rootComment.id)}
