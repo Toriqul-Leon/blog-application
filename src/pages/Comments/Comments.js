@@ -97,7 +97,7 @@ const Comments = ({ currentUserId }) => {
           <ToastContainer />
         </div>
       </div>
-      <div className="comments">
+      <div className="comments mx-auto w-50">
         <h3 className="comments-title">Comments</h3>
         <div className="comments-container">
           {rootComments.map((rootComment) => {

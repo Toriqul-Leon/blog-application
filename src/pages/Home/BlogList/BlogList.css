@@ -35,3 +35,31 @@
   background-color: aliceblue;
   cursor: pointer;
 }
+
+.pagination button {
+  margin-right: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+.pagination button:hover {
+  background-color: #0984e3;
+  cursor: pointer;
+}
+.pagination .selected {
+  background-color: #0984e3;
+  cursor: pointer;
+}
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.select-button {
+  border: none;
+  background-color: #0985e399;
+  border-radius: 5px;
+  cursor: pointer;
+}

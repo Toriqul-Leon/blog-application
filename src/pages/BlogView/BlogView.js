@@ -18,12 +18,13 @@ const BlogView = () => {
   return (
     <>
       <div className="blog">
-        <h1>BlogView</h1>
-        <h2>{blog.title}</h2>
-        <small>{blog.date}</small>
-        <p>{blog.content}</p>
+        <h1 className="fw-bold text-center">BlogView</h1>
+        <div className="w-50 mx-auto my-5">
+          <h2>{blog.title}</h2>
+          <small>{blog.date}</small>
+          <p>{blog.content}</p>
+        </div>
       </div>
-
       <Comments currentUserId="1"></Comments>
     </>
   );
