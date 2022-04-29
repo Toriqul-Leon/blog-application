@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./BlogView.css";
 import { useParams } from "react-router-dom";
-import CommentBox from "../CommentBox/CommentBox";
+
+import Comments from "../Comments/Comments";
 
 const BlogView = () => {
   const { id } = useParams();
@@ -22,7 +23,8 @@ const BlogView = () => {
         <small>{blog.date}</small>
         <p>{blog.content}</p>
       </div>
-      <CommentBox></CommentBox>
+
+      <Comments></Comments>
     </>
   );
 };
